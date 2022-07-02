@@ -1,0 +1,9 @@
+<div class="container d-flex">
+  <span class="fs-5 text-danger">Tags: </span>
+  <div *ngFor="let tag of tag_list" class="mx-2">
+    <!-- <button (click)="add_tag(tag.name)" type="button" class="btn btn-primary rounded-pill btn-sm">{{tag.name}}</button> -->
+    <input type="checkbox" class="btn-check btn-sm" id="btn-check-outlined {{tag.name}}" autocomplete="off">
+    <label (click)="add_tag(tag.name)" class="btn btn-outline-primary rounded-pill btn-sm" for="btn-check-outlined {{tag.name}}">{{tag.name}}</label>
+  </div>
+</div>
+<hr>

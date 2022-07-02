@@ -1,0 +1,20 @@
+<div class="d-flex flex-row overflow-auto" style="margin: -7px 0px">
+	<button type="button" class="btn btn-primary mx-3 px-auto fs-5"
+		(click)="event_type_handler('all_events')">All Events</button>
+	<button type="button" class="btn btn-success mx-3 px-auto fs-5"
+		(click)="event_type_handler('Coding')">Coding Events</button>
+	<button type="button" class="btn btn-secondary mx-3 px-auto fs-5"
+		(click)="event_type_handler('Webinar')">Webinars</button>
+	<button type="button" class="btn btn-danger mx-3 px-auto fs-5"
+		(click)="event_type_handler('Bootcamp')">Bootcamp Events</button>
+	<button type="button" class="btn btn-warning mx-3 px-auto fs-5"
+		(click)="event_type_handler('Workshop')">Workshop</button>
+</div>
+<hr>
+<div class="d-flex flex-row overflow-auto" style="margin: -12px 0px">
+	<button type="button" class="btn btn-primary mx-3 px-auto"
+		(click)="sub_event_type_handler('upcoming')">Upcoming</button>
+	<button type="button" class="btn btn-secondary mx-3 px-auto"
+		(click)="sub_event_type_handler('archived')">Archived</button>
+</div>
+<hr>

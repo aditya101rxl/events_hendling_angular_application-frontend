@@ -1,0 +1,13 @@
+.bg-ninja{
+	background-color: #fd8808;
+}
+.bg-blue{
+	background-color: none;
+	color: white;
+	border-color: #032d6b;
+	border-width: 2px;
+	border-style: outset;
+}
+.bg-blue:hover{
+	background-color: #032d6b;
+}
