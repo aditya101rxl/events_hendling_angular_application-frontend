@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
@@ -10,7 +12,7 @@ export class EventsComponent implements OnInit, OnChanges {
 
   @Input() url: string;
   events: any;
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.url = "";
     this.events = [];
   }
@@ -26,6 +28,11 @@ export class EventsComponent implements OnInit, OnChanges {
       this.events = data;
       // console.log(this.events);
     });
+  }
+
+  onSelect(id: any){
+    // console.log(id);
+    this.router.navigate(['/view', id]);
   }
 
 }

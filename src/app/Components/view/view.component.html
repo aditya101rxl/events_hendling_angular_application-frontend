@@ -1,1 +1,47 @@
-<p>view works!</p>
+<div class="container mt-5">
+  <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+	<div class="row">
+		<div class="col-md-4">
+			<div class="card w-100">
+		  <img class="img-fluid card-img-top" style="height: 19rem;" src="{{event.image}}">
+		</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card w-100 h-100">
+				<div class="card-header">
+			    <h3><span style="color: tomato; text-decoration-color: darkred;">{{event.title}}</span></h3>
+			  </div>
+			  <div class="card-body">
+			    <div>
+					  <div class="col">
+					    <div class="col-sm mb-2">
+					    	<U>Registration start on:</U> <span style="color: green;"> {{ event.registration_start }}</span>
+					    </div>
+					    <div class="col-sm">
+					    	<U>Registration end on:</U> <span style="color: red;"> {{ event.registration_end }} </span>
+					    </div>
+					  </div>
+					</div>
+					<hr style="color: darkgoldenrod;">
+			    <p class="card-text">{{ event.description }}</p>
+					<hr style="color: darkgoldenrod;">
+					<h6>Venue: <span style="color: goldenrod;">{{ event.venue }}</span></h6>
+					<h6>Registration fees: {{event.fees}}
+						<!-- <% if @event.fees==0 %>
+							<span class="px-3" style="background-color: green; border-radius: 10%; text-decoration-color: white;">FREE</span>
+						<% else %>
+							<span><%=@event.fees%></span>
+						<% end %> -->
+					</h6>
+			  </div>
+				<div class="card-footer text-muted">
+			    <div class="container">
+					  <div class="row">
+					  	<button type="button" class="btn btn-success">Register</button>
+					  </div>
+					</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>

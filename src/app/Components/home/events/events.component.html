@@ -4,7 +4,8 @@
 	  <div class="card-body">
 	    <h5 class="card-title">{{event.title}}</h5>
 	    <!-- <p class="card-text" maxlength="5">{{event.description}}</p> -->
-	    <a href="#" class="btn btn-primary">View</a>
+	    <span (click)="onSelect(event.id)" class="btn btn-outline-primary"> View event details </span>
+	    <!-- <a routerLink="/view" routerLinkActive="" class="btn btn-primary">View</a> -->
 	  </div>
 	</div>
 </div>

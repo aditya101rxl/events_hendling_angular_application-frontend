@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AppRoutingModule } from './app-routing.module';
+
 import {HttpClientModule} from '@angular/common/http'; // importing the http module
 
 import { AppComponent } from './app.component';
@@ -14,14 +16,15 @@ import { NavbarComponent } from './Components/home/navbar/navbar.component';
   declarations: [
     AppComponent,
     HomeComponent,
+    NavbarComponent,
     EventsComponent,
     TagsComponent,
-    ViewComponent,
-    NavbarComponent
+    ViewComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule // adding it in the imports
+    HttpClientModule, // adding it in the imports
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit {
   }
 
   event_handler(){
-    console.log(this.event_type);
+    // console.log(this.event_type);
     this.eventTypeEmitter.emit(this.event_type);
   }
 
