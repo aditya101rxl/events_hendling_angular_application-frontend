@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,31 +8,36 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  url: string;
-  events: any = [];
-  event_type: string;
-  sub_event_type: string;
-  tag_list: string;
+  event_type: any;
+  sub_event_type: any;
+  tag_list: any;
 
-  constructor() { 
-    this.event_type = "all_events";
-    this.sub_event_type = "upcoming";
-    this.tag_list = "";
-    this.url = "";
-    this.build_url();
+  constructor(private router: Router, private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params=>{
+      // console.log(params);
+      this.event_type = (params['event_type']?params['event_type']:'all_events');
+      this.sub_event_type = (params['upcoming']?params['upcoming']:'upcoming');
+      this.tag_list = (params['tag_list']?params['tag_list']:'');
+    });
+    this.redirect();
   }
 
-  build_url(): void{
-    this.url = "http://127.0.0.1:3000/api/events?event_type="+
-                this.event_type+"&sub_event_type="+
-                this.sub_event_type+"&tag_list="+
-                this.tag_list;
+  redirect(): void{
+    this.router.navigate(['/events'],
+    { queryParams: 
+      {
+        event_type: this.event_type,
+        sub_event_type: this.sub_event_type,
+        tag_list: this.tag_list,
+        page: '1'
+      }
+    });
   }
 
   change_event_type(e_type: string[]){
     this.event_type = e_type[0];
     this.sub_event_type = e_type[1];
-    this.build_url();
+    this.redirect();
   }
 
   add_tags(tag: string){
@@ -40,7 +46,7 @@ export class HomeComponent {
     }else{
       this.tag_list += (","+tag);
     }
-    this.build_url();
+    this.redirect();
   }
 
 }

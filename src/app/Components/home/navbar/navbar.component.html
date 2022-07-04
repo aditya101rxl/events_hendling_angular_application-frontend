@@ -1,20 +1,27 @@
 <div class="d-flex flex-row overflow-auto" style="margin: -7px 0px">
 	<button type="button" class="btn btn-outline-primary mx-3 px-auto fs-5"
-		(click)="event_type_handler('all_events')">All Events</button>
+		(click)="event_type_handler('all_events')"
+		[class.active]="isSelected('all_events')">All Events</button>
 	<button type="button" class="btn btn-outline-success mx-3 px-auto fs-5"
-		(click)="event_type_handler('Coding')">Coding Events</button>
+		(click)="event_type_handler('Coding')"
+		[class.active]="isSelected('Coding')">Coding Events</button>
 	<button type="button" class="btn btn-outline-secondary mx-3 px-auto fs-5"
-		(click)="event_type_handler('Webinar')">Webinars</button>
+		(click)="event_type_handler('Webinar')"
+		[class.active]="isSelected('Webinar')">Webinars</button>
 	<button type="button" class="btn btn-outline-danger mx-3 px-auto fs-5"
-		(click)="event_type_handler('Bootcamp')">Bootcamp Events</button>
+		(click)="event_type_handler('Bootcamp')"
+		[class.active]="isSelected('Bootcamp')">Bootcamp Events</button>
 	<button type="button" class="btn btn-outline-warning mx-3 px-auto fs-5"
-		(click)="event_type_handler('Workshop')">Workshop</button>
+		(click)="event_type_handler('Workshop')"
+		[class.active]="isSelected('Workshop')">Workshop</button>
 </div>
 <hr>
 <div class="d-flex flex-row overflow-auto" style="margin: -12px 0px">
 	<button type="button" class="btn btn-outline-primary mx-3 px-auto"
-		(click)="sub_event_type_handler('upcoming')">Upcoming</button>
+		(click)="sub_event_type_handler('upcoming')"
+		[class.active]="isSelected('upcoming')">Upcoming</button>
 	<button type="button" class="btn btn-outline-secondary mx-3 px-auto"
-		(click)="sub_event_type_handler('archived')">Archived</button>
+		(click)="sub_event_type_handler('archived')"
+		[class.active]="isSelected('archived')">Archived</button>
 </div>
 <hr>

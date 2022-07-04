@@ -1,4 +1,5 @@
 import { Component, Output, OnInit, EventEmitter } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -11,8 +12,13 @@ export class NavbarComponent implements OnInit {
 
   event_type: string[];
 
-  constructor() {
+  constructor(private route: ActivatedRoute) {
     this.event_type = ["all_events", "upcoming"];
+    this.route.queryParams.subscribe(params=>{
+      // console.log(params);
+      this.event_type[0] = (params['event_type']?params['event_type']:"all_events");
+      this.event_type[1] = (params['sub_event_type']?params['sub_event_type']:"upcoming");
+    });
   }
 
   ngOnInit(): void {
@@ -32,6 +38,10 @@ export class NavbarComponent implements OnInit {
   event_handler(){
     // console.log(this.event_type);
     this.eventTypeEmitter.emit(this.event_type);
+  }
+
+  isSelected(name: string){
+    return (this.event_type[0]==name || this.event_type[1]==name);
   }
 
 

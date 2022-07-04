@@ -11,6 +11,7 @@ import { EventsComponent } from './Components/home/events/events.component';
 import { TagsComponent } from './Components/home/tags/tags.component';
 import { ViewComponent } from './Components/view/view.component';
 import { NavbarComponent } from './Components/home/navbar/navbar.component';
+import { PlayComponent } from './Components/play/play.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NavbarComponent } from './Components/home/navbar/navbar.component';
     NavbarComponent,
     EventsComponent,
     TagsComponent,
-    ViewComponent
+    ViewComponent,
+    PlayComponent
   ],
   imports: [
     BrowserModule,
