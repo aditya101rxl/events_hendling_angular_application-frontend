@@ -11,3 +11,27 @@
 .bg-blue:hover{
 	background-color: #032d6b;
 }
+
+.my-btn{
+	margin: 0 12px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.my-btn:hover{
+	text-decoration: underline red 2px;
+}
+
+
+.home{
+	width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+}
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	margin: -70px auto;
+}

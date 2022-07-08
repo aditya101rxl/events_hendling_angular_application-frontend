@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import {HttpClientModule} from '@angular/common/http'; // importing the http module
+import {HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/home/home.component';
@@ -12,6 +13,11 @@ import { TagsComponent } from './Components/home/tags/tags.component';
 import { ViewComponent } from './Components/view/view.component';
 import { NavbarComponent } from './Components/home/navbar/navbar.component';
 import { PlayComponent } from './Components/play/play.component';
+import { LoginComponent } from './Components/auth/login/login.component';
+import { RegisterComponent } from './Components/auth/register/register.component';
+
+import { CookieService } from 'ngx-cookie-service'
+import { TokenInterceptorService } from './token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -21,14 +27,22 @@ import { PlayComponent } from './Components/play/play.component';
     EventsComponent,
     TagsComponent,
     ViewComponent,
-    PlayComponent
+    PlayComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule, // adding it in the imports
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [CookieService,
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

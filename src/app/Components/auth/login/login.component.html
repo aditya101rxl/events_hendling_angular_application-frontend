@@ -1,0 +1,29 @@
+<form #userForm="ngForm" ngNativeValidate (ngSubmit) = "onClickSubmit(userForm.value)">
+	<div class="col-md-4 mx-md-auto">
+	  <div class="card shadow">
+	    <div class="card-header">
+	      <h2 class="card-title text-center">Sign In</h2>
+	    </div>
+	    <div class="card-body">
+	      <div class="mb-3">
+			    <label for="exampleInputEmail1" class="form-label">Email address</label>
+			    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" ngModel required>
+			  </div>
+			  <div class="mb-3">
+			    <label for="exampleInputPassword1" class="form-label">Password</label>
+			    <input type="password" class="form-control" id="exampleInputPassword1" name="password" ngModel required>
+			  </div>
+			  <!-- <div class="mb-3 form-check">
+			    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember" [ngModel]="false" >
+			    <label class="form-check-label" for="exampleCheck1">Remember me for 30 days</label>
+			  </div> -->
+			  <div class="d-grid gap-2">
+				  <button type="submit" class="btn btn-outline-success">Login</button>
+				  <a href="/auth/register">create new account</a>
+				  <a href="/auth/forget_password">forget password</a>
+				</div>
+			  
+	    </div>
+	  </div>
+	</div>
+</form>

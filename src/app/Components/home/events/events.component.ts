@@ -20,7 +20,7 @@ export class EventsComponent implements OnInit {
   ngOnInit(): void { 
     this.route.queryParams.subscribe(params=>{
       // console.log(params);
-      this.url = "http://127.0.0.1:3000/api/events?event_type="+
+      this.url = "http://127.0.0.1:3000/api/events/events?event_type="+
                   params['event_type']+"&sub_event_type="+
                   params['sub_event_type']+"&tag_list="+
                   params['tag_list'];

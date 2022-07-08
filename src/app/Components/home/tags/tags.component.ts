@@ -16,7 +16,7 @@ export class TagsComponent implements OnInit, OnChanges {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get('http://127.0.0.1:3000/api/tags').subscribe(data=>{
+    this.http.get('http://127.0.0.1:3000/api/events/tags').subscribe(data=>{
       this.tag_list = data;
     });
   }
