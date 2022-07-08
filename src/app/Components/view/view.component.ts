@@ -23,13 +23,18 @@ export class ViewComponent implements OnInit {
   }
   register(){
     if (!!localStorage.getItem('token')){
-      this.http.get("http://127.0.0.1:3000/api/events/register?"+
-                    "user_id="+this.user.id+"&event_id="+this.event.id)
-      .subscribe(data=>{
-        console.log(data);
+      this.http.get("http://127.0.0.1:3000/api/events/register?event_id="+this.event.id)
+      .subscribe(res=>{
+        console.log(res);
+        alert('succssfull register');
+      }, err=> {
+        console.log(err.error);
+        alert(err.error.msg);
       });
     }else{
-      this.router.navigate(['/auth/login']);
+      if (confirm('please login to register in event')==true){
+        this.router.navigate(['/auth/login']);
+      }
     }
   }
 
