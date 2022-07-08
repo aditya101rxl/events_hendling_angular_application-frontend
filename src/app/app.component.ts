@@ -1,24 +1,30 @@
-import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnChanges {
+export class AppComponent implements OnInit {
   title = 'events';
-  user?: any;
-  token?: any;
-  constructor(private router: Router, private cookies: CookieService){ }
+  current_user?: any;
+  constructor(private router: Router, private http: HttpClient){ }
 
   ngOnInit(){
-    this.user = localStorage.getItem('user');
-    this.token = localStorage.getItem('token');
+    // console.log(localStorage.getItem('token'));
+    if (!!localStorage.getItem('token')){
+      this.http.get("http://127.0.0.1:3000/api/auth/restoreUser").subscribe(data=>{
+        this.current_user = data;
+        // console.log(this.current_user.token)
+        localStorage.setItem('token', this.current_user.token);
+      }, error=>{
+        console.log(error);
+      })
+    }
   }
-  ngOnChanges(changes: SimpleChanges){ 
-  }
+
   logout(){
     localStorage.clear();
     this.router.navigate(['/'])

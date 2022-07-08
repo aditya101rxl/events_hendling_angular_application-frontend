@@ -11,6 +11,7 @@ export class ViewComponent implements OnInit {
 
   event?: any
   user?: any
+  isRegisterd?: any
   constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
@@ -20,13 +21,19 @@ export class ViewComponent implements OnInit {
       this.event = data;
       // console.log(this.event);
     });
+    if (!!localStorage.getItem('token')){
+      this.http.get("http://127.0.0.1:3000/api/events/isRegister?event_id="+id).subscribe(data=>{
+        this.isRegisterd = data;
+      })
+    }
   }
   register(){
     if (!!localStorage.getItem('token')){
       this.http.get("http://127.0.0.1:3000/api/events/register?event_id="+this.event.id)
       .subscribe(res=>{
         console.log(res);
-        alert('succssfull register');
+        alert('succssfully registered');
+        window.location.reload();
       }, err=> {
         console.log(err.error);
         alert(err.error.msg);
@@ -36,6 +43,17 @@ export class ViewComponent implements OnInit {
         this.router.navigate(['/auth/login']);
       }
     }
+  }
+  unregister(){
+    this.http.get("http://127.0.0.1:3000/api/events/unregister?id="+this.isRegisterd.id)
+    .subscribe(res=>{
+      console.log(res);
+      alert('succssfully unregistered');
+      window.location.reload();
+    }, err=> {
+      console.log(err.error);
+      alert(err.error.msg);
+    });
   }
 
 }

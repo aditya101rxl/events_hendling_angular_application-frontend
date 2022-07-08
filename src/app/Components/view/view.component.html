@@ -37,7 +37,8 @@
 				<div class="card-footer text-muted">
 			    <div class="container">
 					  <div class="row">
-					  	<button (click)="register()" type="button" class="btn btn-success">Register</button>
+					  	<button *ngIf='!isRegisterd' (click)="register()" type="button" class="btn btn-outline-success">Register</button>
+					  	<button *ngIf='isRegisterd' (click)="unregister()" type="button" class="btn btn-outline-danger">Unregister</button>
 					  </div>
 					</div>
 			  </div>

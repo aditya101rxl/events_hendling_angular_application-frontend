@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +9,8 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class LoginComponent implements OnInit {
 
-  currentUser?: any;
-  constructor(private http: HttpClient, private router: Router, private cookies: CookieService) { }
+  current_user?: any
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void { }
 
@@ -21,17 +20,12 @@ export class LoginComponent implements OnInit {
                   'email='+data.email+
                   '&password='+data.password)
     .subscribe(res=>{
-      this.currentUser = res;
-
-      console.log(this.currentUser);
-
-      localStorage.setItem('token', this.currentUser.token);
-      localStorage.setItem('user', this.currentUser.email);
-
+      this.current_user = res;
+      localStorage.setItem('token', this.current_user.token);
       this.router.navigate(['/events'])
     }, error =>{
       console.log(error);
-      alert(error.error.msg + ', please check!');
+      alert(error.error);
     });
   }
 
