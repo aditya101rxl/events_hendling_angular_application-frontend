@@ -32,11 +32,11 @@ export class TagsComponent implements OnInit, OnChanges {
 
   isSelected(name: string){
     // console.log(this.selected.indexOf(name));
-    return (this.selected.indexOf(","+name)>=0);
+    return (this.selected.indexOf(","+name+",")>=0);
   }
 
   add_tag(name: string){
-    this.selected += (","+name);
+    this.selected += (name+",");
     this.tagEmitter.emit(name);
   }
 }

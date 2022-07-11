@@ -12,6 +12,7 @@ export class ViewComponent implements OnInit {
   event?: any
   user?: any
   isRegisterd?: any
+  isArchived: boolean = false;
   constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
@@ -19,6 +20,13 @@ export class ViewComponent implements OnInit {
     // console.log(this.route.snapshot.paramMap);
     this.http.get("http://127.0.0.1:3000/api/events/event?id="+id).subscribe(data=>{
       this.event = data;
+      let current_time = new Date();
+      let event_time = new Date(this.event.registration_end);
+      if(event_time < current_time){
+        this.isArchived = true;
+        // console.log(current_time);
+        // console.log(event_time);
+      }
       // console.log(this.event);
     });
     if (!!localStorage.getItem('token')){

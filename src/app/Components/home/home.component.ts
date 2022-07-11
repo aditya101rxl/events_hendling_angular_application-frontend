@@ -16,8 +16,8 @@ export class HomeComponent {
     this.route.queryParams.subscribe(params=>{
       // console.log(params);
       this.event_type = (params['event_type']?params['event_type']:'all_events');
-      this.sub_event_type = (params['upcoming']?params['upcoming']:'upcoming');
-      this.tag_list = (params['tag_list']?params['tag_list']:'');
+      this.sub_event_type = (params['sub_event_type']?params['sub_event_type']:'upcoming');
+      this.tag_list = (params['tag_list']?params['tag_list']:',');
     });
     this.redirect();
   }
@@ -41,10 +41,10 @@ export class HomeComponent {
   }
 
   add_tags(tag: string){
-    if (this.tag_list.indexOf(tag) > -1){
-      this.tag_list = this.tag_list.replace((","+tag), "");
+    if (this.tag_list.indexOf(","+tag+",") > -1){
+      this.tag_list = this.tag_list.replace((","+tag+","), ",");
     }else{
-      this.tag_list += (","+tag);
+      this.tag_list += (tag+",");
     }
     this.redirect();
   }

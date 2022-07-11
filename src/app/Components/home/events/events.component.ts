@@ -12,13 +12,20 @@ export class EventsComponent implements OnInit {
 
   url: string;
   events: any;
+  isArchived: boolean;
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {
     this.url = "";
     this.events = [];
+    this.isArchived = false;
   }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.route.queryParams.subscribe(params=>{
+      if(params['sub_event_type']=='archived'){
+        this.isArchived = true;
+      }else{
+        this.isArchived = false;
+      }
       // console.log(params);
       this.url = "http://127.0.0.1:3000/api/events/events?event_type="+
                   params['event_type']+"&sub_event_type="+

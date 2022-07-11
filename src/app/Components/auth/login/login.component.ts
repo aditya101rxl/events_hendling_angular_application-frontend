@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void { }
 
   onClickSubmit(data: any){
-    console.log(data);
+    // console.log(data);
     this.http.get('http://127.0.0.1:3000/api/auth/login?'+
                   'email='+data.email+
                   '&password='+data.password)
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/events'])
     }, error =>{
       console.log(error);
-      alert(error.error);
+      alert(error.error.error);
     });
   }
 
