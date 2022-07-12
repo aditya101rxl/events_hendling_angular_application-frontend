@@ -16,7 +16,7 @@
         <form class="d-flex">
           <a *ngIf='!logedIn()' href="/auth/login" class="my-btn">Login</a>
           <a *ngIf='!logedIn()' href="/auth/register" class="my-btn">Register</a>
-          <button *ngIf="logedIn()" (click)="logout()" class="my-btn">Logout</button>
+          <a *ngIf="logedIn()" (click)="logout()" class="my-btn">Logout</a>
         </form>
     </div>
   </nav>

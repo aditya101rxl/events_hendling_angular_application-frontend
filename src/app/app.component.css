@@ -18,6 +18,9 @@
 	text-decoration: none;
 }
 .my-btn:hover{
+	cursor: pointer;
+}
+.my-btn:hover{
 	text-decoration: underline red 2px;
 }
 

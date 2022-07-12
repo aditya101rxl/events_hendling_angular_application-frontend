@@ -13,6 +13,7 @@ export class EventsComponent implements OnInit {
   url: string;
   events: any;
   isArchived: boolean;
+  zeroEventsFound: boolean = false;
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {
     this.url = "";
     this.events = [];
@@ -33,6 +34,11 @@ export class EventsComponent implements OnInit {
                   params['tag_list'];
       this.http.get(this.url).subscribe(data=>{
         this.events = data;
+        if(this.events.length>0){
+          this.zeroEventsFound = false;
+        }else{
+          this.zeroEventsFound = true;
+        }
         // console.log(this.events);
       });
     })

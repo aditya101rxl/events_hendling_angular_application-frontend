@@ -1,11 +1,16 @@
+
 <div class="container-fluid d-flex flex-row flex-wrap">
+	<div class="container text-center fs-1" *ngIf="zeroEventsFound">
+		No Events found
+	</div>
 	<div class="card m-auto mb-2" style="width: 45%;" *ngFor="let event of events">
 	  <img src="{{event.image}}" class="card-img-top" alt="...">
 	  <div class="card-body">
 	    <h5 class="card-title">{{event.title}}</h5>
 	    <!-- <p class="card-text" maxlength="5">{{event.description}}</p> -->
 	    <span *ngIf="isArchived" (click)="onSelect(event.id)" class="btn btn-outline-primary">View event details</span>
-	    <span *ngIf="!isArchived" (click)="onSelect(event.id)" class="btn btn-outline-primary">Register for event</span>
+	    <span *ngIf="!isArchived" (click)="onSelect(event.id)" class="btn btn-outline-primary">View event details</span><br>
+	    <span *ngIf="isArchived" (click)="onSelect(event.id)" class="text-danger">registration closed</span>
 	    <!-- <a routerLink="/view" routerLinkActive="" class="btn btn-primary">View</a> -->
 	  </div>
 	</div>

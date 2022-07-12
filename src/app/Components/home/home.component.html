@@ -2,7 +2,16 @@
   <h1 class="text-white mb-3" style="text-decoration: solid underline red;">Events & News</h1>
   <div class="shadow-lg p-3 mt-5 bg-body rounded">
   	<app-navbar (eventTypeEmitter)="change_event_type($event)"></app-navbar>
-    <app-tags (tagEmitter)="add_tags($event)" [selected] = 'tag_list'></app-tags>
-    <app-events></app-events>
+    <div class="container">
+      <div class="row">
+        <div class="col-8">
+          <app-events></app-events>
+        </div>
+        <div class="col-4">
+          <app-tags (tagEmitter)="add_tags($event)" [selected] = 'tag_list'></app-tags>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
