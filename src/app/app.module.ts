@@ -40,7 +40,8 @@ import { TokenInterceptorService } from './token-interceptor.service';
   providers: [CookieService,
   {
     provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptorService,
+    useClass: TokenInterceptorService,   // it intercepts outgoing http requests transform them and then send it to the servers.
+                                         // here we are implementing which modify the request and insert the token in it and send to the server.
     multi: true
   }],
   bootstrap: [AppComponent]
