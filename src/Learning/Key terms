@@ -1,2 +1,22 @@
 
 Snapshot -> its an object of activeRoute through which we retrive params value which coming from router.
+
+
+Subsribe -> Subscribe() is a method in Angular that connects the observer to observable events. 
+            Whenever any change is made in these observable, a code is executed and observes the results 
+            or changes using the subscribe method. Subscribe() is a method from the rxjs library, used internally by Angular.
+            
+            
+Use Of @Input / @Output Decorator
+            Input and Output decorator is used for the interaction between the two components.
+            Actual use of input and output decorator in Angular 5 is to communicate between the two components, Those who are making 
+            relationship of parent and child, like child component will come under the parent component
+
+            When we want to send data from parent component to child component, Then we use @Input Decorator and when we want to 
+            send the data from child component to parent component, Then we use @Output Decorator in Angular 5.
+            
+            
+ngOnChanges -> The ngOnChnages is a life cycle hook, which angular fires when it detects changes to data-bound input property. 
+            This method receives a SimpeChanges object, which contains the current and previous property values.
+            
+            
