@@ -1,0 +1,2 @@
+
+Snapshot -> its an object of activeRoute through which we retrive params value which coming from router.
